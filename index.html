@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PereiraLabs - Gerador de Ícones & Favicons</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- JSZip para compactação direta no navegador -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+  <div class="card">
+    <header>
+      <div class="badge">PereiraLabs Tools</div>
+      <h1>Gerador de Ícones & Favicon</h1>
+      <p>Envie um arquivo SVG, PNG ou JPG. O navegador gera os tamanhos, o favicon.ico nativo, o manifesto PWA e o arquivo .zip pronto para uso.</p>
+    </header>
+
+    <div class="dropzone" id="dropzone">
+      <input type="file" id="fileInput" accept="image/svg+xml, image/png, image/jpeg, image/webp">
+      <div class="drop-text">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="17 8 12 3 7 8"></polyline>
+          <line x1="12" y1="3" x2="12" y2="15"></line>
+        </svg>
+        <span>Clique ou arraste seu SVG / imagem aqui</span>
+      </div>
+    </div>
+
+    <div id="previewSection" class="hidden">
+      <div class="preview-box">
+        <img id="previewImage" alt="Prévia">
+        <div class="file-info" id="fileInfo"></div>
+      </div>
+      <button id="btnGenerate" class="btn-primary">Processar e Baixar Pacote (.ZIP)</button>
+    </div>
+
+    <div id="statusMessage" class="status hidden"></div>
+  </div>
+
+  <canvas id="offscreenCanvas" style="display:none;"></canvas>
+  <script src="app.js"></script>
+</body>
+</html>
